@@ -1,0 +1,27 @@
+﻿@using OWWeb.Models
+@model List<HomeViewModel>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>BattleTag</th>
+            <th>Location</th>
+            <th>Current Rank</th>
+        </tr>
+        @foreach (var player in Model)
+        {
+            <tr>
+                <td>@player.Name</td>
+                <td>@player.BattleTag</td>
+                <td>@player.Location</td>
+                <td>@player.Rank</td>
+            </tr>
+        }
+    </table>
+    <div>
+        <button class="btn btn-default btn-sm" type="button" id="refreshData" value="Reload Data"
+                onclick="location.href='@Url.Action("GetPlayerRanksAsync", "Home")'">
+            <span class="glyphicon glyphicon-refresh"></span> Refresh
+        </button>
+        Please wait, refresh can take a while - have to scrape overwatch website per BattleTag.
+    </div>
