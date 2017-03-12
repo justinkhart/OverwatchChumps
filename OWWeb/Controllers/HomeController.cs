@@ -24,11 +24,8 @@ namespace OWWeb.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            //var players = db.Players.ToList();
-            //var model = new Dictionary<Player, short>();
-
-
-
+            // Left joins from player to rankhistorys, converts any null ranks to 0 and orders by rank
+            // Returns all that as a model to the View
             var query = (
                 from player in db.Players
                 from rankhistory in db.RankHistorys
