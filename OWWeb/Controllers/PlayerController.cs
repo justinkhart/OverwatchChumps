@@ -47,7 +47,7 @@ namespace OWWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PlayerID,Name,BattleTag")] Player player)
+        public ActionResult Create([Bind(Include = "PlayerID,Name,BattleTag,Location")] Player player)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace OWWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PlayerID,Name,BattleTag")] Player player)
+        public ActionResult Edit([Bind(Include = "PlayerID,Name,BattleTag,Location")] Player player)
         {
             if (ModelState.IsValid)
             {
