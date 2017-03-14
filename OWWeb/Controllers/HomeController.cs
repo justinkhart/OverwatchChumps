@@ -30,6 +30,8 @@ namespace OWWeb.Controllers
                 from player in db.Players
                 from rankhistory in db.RankHistorys
                     .Where(rankhistory => rankhistory.PlayerID == player.PlayerID)
+                    .OrderByDescending(rankhistory => rankhistory.Timestamp)
+                    .Take(1)
                     .DefaultIfEmpty()
 
                 select new HomeViewModel
