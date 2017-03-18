@@ -69,10 +69,7 @@ namespace OWWeb.Controllers
                 var op = await GetOverwatchPlayer(player);
 
                 // Create a new RankHistory row object to be added to dbo.RankHistory
-                var rh = new RankHistory();
-                rh.CompetitiveRank = short.Parse(op.CompetitiveRank.ToString());
-                rh.Tier = Tier.Bronze; //TODO: Assign correct tier based on the result
-                rh.Timestamp = DateTime.Now.AddHours(10);
+                var rh = new RankHistory(short.Parse(op.CompetitiveRank.ToString()), DateTime.Now.AddHours(10));
 
                 // Add the RankHistory row 
                 player.RankHistory.Add(rh);
